@@ -46,8 +46,17 @@ public class ScoreManager : MonoBehaviour
 
     internal void SaveNewBestScore()
     {
+        bestScore = currentScore;
         PlayerPrefs.SetFloat("bestscore20200905635", bestScore);
         PlayerPrefs.Save();
+    }
+
+    private void Update()
+    {
+        if(currentScore > bestScore && txtScore.color != Color.yellow)
+        {
+            txtScore.color = Color.yellow;
+        }
     }
 
 }
